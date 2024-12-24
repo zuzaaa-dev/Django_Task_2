@@ -1,0 +1,47 @@
+{% extends "blogs/base.html" %}
+
+{% block content %}
+    <h1 class="mb-4 text-center" style="color: #003366;">Блоги</h1>
+    
+    <ul class="list-group list-group-flush mt-4 mx-auto" style="max-width: 600px;">
+        {% for blog in blogs %}
+            <a href="{% url 'blogs:blog' blog.id %}" class="text-decoration-none">
+                <li class="list-group-item bg-light rounded shadow-sm mb-2 blog-item border text-center" style="border-color: #003366;">
+                    <span style="color: #003366; font-weight: bold;">{{ blog }}</span>
+                </li>
+            </a>
+        {% empty %}
+            <li class="list-group-item text-center text-muted bg-light rounded shadow-sm">
+                Нет блогов анлак
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="text-center mt-4">
+        {% if user.is_staff %}
+            <a href="{% url 'blogs:new_blog' %}" class="btn btn-success">Добавить новый блог</a>
+        {% endif %}
+    </div>
+
+{#    <style>#}
+{#        /* Общие стили для элементов списка */#}
+{#        .blog-item {#}
+{#            transition: transform 0.2s, box-shadow 0.2s;#}
+{#            cursor: pointer;#}
+{#        }#}
+{#        .blog-item:hover {#}
+{#            transform: translateY(-5px);#}
+{#            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);#}
+{#            background-color: #e9ecef;#}
+{#        }#}
+{#        .text-decoration-none {#}
+{#            text-decoration: none !important;#}
+{#        }#}
+{##}
+{#        /* Для мобильных устройств */#}
+{#        @media (max-width: 768px) {#}
+{#            .list-group {#}
+{#                width: 90%; /* Увеличиваем ширину списка на мобильных */#}
+{#            }#}
+{#        }#}
+{#    </style>#}
+{% endblock content %}

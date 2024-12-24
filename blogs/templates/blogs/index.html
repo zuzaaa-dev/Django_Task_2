@@ -1,0 +1,9 @@
+{% extends "blogs/base.html" %}
+
+{% block content %}
+    <div class="text-center my-5">
+        <h1 class="display-4" style="color: #003366;">Добро пожаловать в Блоги</h1>
+        <p class="lead" style="color: #666;">Открывайте и наслаждайтесь идеями на разные темы.</p>
+        <a href="{% url 'blogs:blogs' %}" class="btn btn-primary btn-lg mt-4" style="background-color: #003366; border-color: #003366;">Исследовать блоги</a>
+    </div>
+{% endblock content %}

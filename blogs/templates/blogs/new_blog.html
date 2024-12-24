@@ -1,0 +1,42 @@
+{% extends "blogs/base.html" %}
+
+{% block content %}
+    <h2 class="text-center" style="color: #003366;">Добавление блога</h2>
+    <form action="{% url 'blogs:new_blog' %}" method="post">
+        {% csrf_token %}
+      
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            {{ form.text.label_tag }}
+            {{ form.text }}
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Добавить</button>
+        </div>
+    </form>
+
+{#    <style>#}
+{#        .form-group label {#}
+{#            font-weight: bold;#}
+{#            color: #003366;#}
+{#        }#}
+{#        .btn-primary {#}
+{#            background-color: #003366;#}
+{#            border-color: #003366;#}
+{#        }#}
+{#        .btn-primary:hover {#}
+{#            background-color: #0056b3;#}
+{#        }#}
+{#        .container {#}
+{#            max-width: 600px;#}
+{#        }#}
+{#        .shadow-sm {#}
+{#            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);#}
+{#        }#}
+{#    </style>#}
+{% endblock content %}
